@@ -1,0 +1,30 @@
+USE [Temtem]
+GO
+
+/****** Object:  Table [dbo].[BaseStats]    Script Date: 01.11.2020 15:26:48 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[BaseStats](
+	[TemID] [int] IDENTITY(1,1) NOT NULL,
+	[HP] [int] NOT NULL,
+	[STA] [int] NOT NULL,
+	[SPD] [int] NOT NULL,
+	[ATK] [int] NOT NULL,
+	[DEF] [int] NOT NULL,
+	[SPATK] [int] NOT NULL,
+	[SPDEF] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TemID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[BaseStats]  WITH CHECK ADD FOREIGN KEY([TemID])
+REFERENCES [dbo].[Temtems] ([ID])
+GO
+
